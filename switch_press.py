@@ -28,8 +28,8 @@ while True:
             #the display is now on so set it on
             display_is_on = True
             if display_is_on and click_num == 1:
-                window_popup()
                 send_text()
+                window_popup()
         latest_signal = current_time;
     else:
         if current_time - latest_signal > idle:
