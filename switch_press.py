@@ -1,4 +1,4 @@
-from need_help import *
+from send_text import *
 from window_popup import *
 
 import RPi.GPIO as GPIO
@@ -13,12 +13,12 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(7, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 #variables for display
-#idle is for how long until screen  is returned to screen saver
+#idle is for how long until screen is returned to screen saver
 
 display_is_on = False
 idle = 10
 latest_signal = 0
-subprocess.call('xset dpms 20 20 20', shell=True)
+subprocess.call('xset dpms force off', shell=True)
 while True:
     current_time = time.time()
     if GPIO.input(7) == GPIO.HIGH:
@@ -29,12 +29,13 @@ while True:
             display_is_on = True
             if display_is_on and click_num == 1:
                 window_popup()
+                send_text()
         latest_signal = current_time;
     else:
         if current_time - latest_signal > idle:
             if display_is_on:
                 display_is_on = False
-        time.sleep(.3);
+        time.sleep(.2);
         
     
     
