@@ -18,8 +18,5 @@ def window_popup():
     
     timer_button = Label(window, text="Timer",font=window_text_font, height=8, width=80)
     timer_button.pack(side="bottom")
-    
 
-    
-        
-    
+    mainloop()

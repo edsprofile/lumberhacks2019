@@ -18,13 +18,14 @@ GPIO.setup(7, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 display_is_on = False
 idle = 10
 latest_signal = 0
-subprocess.call('xset dpms force off', shell=True)
+subprocess.call('xset dpms 5 5 5', shell=True)
 while True:
     current_time = time.time()
     if GPIO.input(7) == GPIO.HIGH:
         click_num = 1;
         if not display_is_on: #we need to turn the display on
             subprocess.call('xset dpms force on', shell=True)
+            subprocess.call('xset dpms 20 20 20', shell=True)
             #the display is now on so set it on
             display_is_on = True
             if display_is_on and click_num == 1:
