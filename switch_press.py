@@ -13,10 +13,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(7, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 #variables for display
-#max_idle is for how long until screen  is returned to screen saver
-
-
-
+#idle is for how long until screen  is returned to screen saver
 
 display_is_on = False
 idle = 10
